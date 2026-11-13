@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <title>True Security — Contracheque</title>
+    <style>
+        body { font-family: sans-serif; max-width: 520px; margin: 60px auto; }
+        table { width: 100%; border-collapse: collapse; margin-top: 16px; }
+        th, td { border: 1px solid #ccc; padding: 8px 12px; text-align: left; }
+        th { background: #eee; width: 50%; }
+        .aviso { color: #b00020; background: #fff0f0; padding: 10px;
+                 border-radius: 6px; margin-top: 16px; }
+        .flag { color: #0a7d1f; font-weight: bold; background: #eaffea;
+                padding: 10px; border-radius: 6px; margin-top: 12px; }
+        a { color: #1a73e8; }
+    </style>
+</head>
+<body>
+    <h2>True Security — Contracheque</h2>
+
+    {% if not proprio %}
+    <p class="aviso">⚠ Você está visualizando o contracheque de outro funcionário!</p>
+    {% endif %}
+
+    <table>
+        <tr><th>Funcionário</th><td>{{ dono.nome }}</td></tr>
+        <tr><th>Cargo</th><td>{{ dono.cargo }}</td></tr>
+        <tr><th>Mês de referência</th><td>{{ contrCh.mes }}</td></tr>
+        <tr><th>Salário bruto</th><td>{{ contrCh.salario }}</td></tr>
+        <tr><th>Bônus</th><td>{{ contrCh.bonus }}</td></tr>
+        <tr><th>Salário líquido</th><td>{{ contrCh.liquido }}</td></tr>
+    </table>
+
+    {% if flag %}
+    <p class="flag">{{ flag }}</p>
+    {% endif %}
+
+    <p><a href="/home">← Voltar</a></p>
+</body>
+</html>

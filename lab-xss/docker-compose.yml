@@ -1,0 +1,5 @@
+services:
+  app-xss:
+    build: ./app-xss
+    ports:
+      - "5002:5000"          

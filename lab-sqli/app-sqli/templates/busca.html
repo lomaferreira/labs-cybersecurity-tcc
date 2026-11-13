@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <title>B&B Seguros - Funcionários</title>
+    <style>
+        body { font-family: sans-serif; max-width: 640px; margin: 60px auto; text-align: center;}
+        input[type=text] { width: 70%; padding: 8px; }
+        table { margin: 20px auto; border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ccc; padding: 6px 10px; text-align: left; }
+        th { background: #eee; }
+        .erro { color: #b00020; }
+    </style>
+</head>
+<body>
+    <h2>Diretório de funcionários</h2>
+    <form method="GET">
+        <input type="text" name="nome" value="{{ nome }}" placeholder="buscar por nome">
+        <button type="submit">Buscar</button>
+    </form>
+    {% if erro %}<p class="erro">{{ erro }}</p>{% endif %}
+    {% if resultados is not none %}
+        {% if resultados %}
+        <table>
+            <tr><th>Nome</th><th>Cargo</th><th>Departamento</th></tr>
+            {% for r in resultados %}
+            <tr><td>{{ r[0] }}</td><td>{{ r[1] }}</td><td>{{ r[2] }}</td></tr>
+            {% endfor %}
+        </table>
+        {% else %}
+            <p>Nenhum funcionário encontrado.</p>
+        {% endif %}
+    {% endif %}
+    <p><a href="/">Voltar ao login</a></p>
+</body>
+</html>

@@ -1,0 +1,27 @@
+services:
+  app-dos:
+    build: ./app-dos
+    networks:
+      - backend-net
+
+  proxy:
+    build: ./proxy
+    ports:
+      - "5002:5000"          # entrada do laboratório, também acessível pelo host
+    networks:
+      - lab-net
+      - backend-net
+    depends_on:
+      - app-dos
+
+  atacante:
+    build: ./atacante
+    networks:
+      - lab-net
+    depends_on:
+      - proxy
+
+networks:
+  lab-net:
+  backend-net:
+    internal: true

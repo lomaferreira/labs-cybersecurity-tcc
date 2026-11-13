@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <title>True Security — Painel</title>
+    <style>
+        body { font-family: sans-serif; max-width: 500px; margin: 60px auto; }
+        .card { border: 1px solid #ccc; border-radius: 8px; padding: 16px; margin-top: 20px; }
+        a { color: #1a73e8; }
+        .sair { font-size: 13px; color: #777; }
+    </style>
+</head>
+<body>
+    <h2>Olá, {{ nome }}!</h2>
+    <p>Cargo: {{ cargo }}</p>
+    <div class="card">
+        <b>Seu contracheque</b>
+        <p>Referência: Outubro/2026</p>
+        <a href="/contracheque/{{ meu_id }}">Ver contracheque</a>
+    </div>
+    <p class="sair"><a href="/logout">Sair</a></p>
+</body>
+</html>

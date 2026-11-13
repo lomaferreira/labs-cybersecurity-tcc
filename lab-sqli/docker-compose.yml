@@ -1,0 +1,5 @@
+services:
+  app-sqli:
+    build: ./app-sqli
+    ports:
+      - "5002:5000"         

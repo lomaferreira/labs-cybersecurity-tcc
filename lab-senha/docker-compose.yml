@@ -1,0 +1,17 @@
+services:
+  app-senha:
+    build: ./app-senha
+    ports:
+      - "5002:5000"          # acessível também pelo navegador do host
+    networks:
+      - lab-net
+
+  atacante:
+    build: ./atacante
+    networks:
+      - lab-net
+    depends_on:
+      - app-senha
+
+networks:
+  lab-net:

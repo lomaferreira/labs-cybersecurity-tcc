@@ -1,0 +1,5 @@
+services:
+  app-idor:
+    build: ./app-idor
+    ports:
+      - "5002:5000"
